@@ -1,17 +1,9 @@
 public class Morse {
-    public static class Node {
-        char letter;
-        Node left, right;
-
-        Node(char letter) {
-            this.letter = letter;
-        }
-    }
 
     private Node root;
 
     public Morse() {
-        root = new Node(' ');  
+        root = new Node(' ');
     }
 
     public void insert(char letter, String morseCode) {
