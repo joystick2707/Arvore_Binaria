@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TreeVisualizer extends JFrame {
-
     static class Node {
         char letter;
         Node left, right;
@@ -15,10 +14,9 @@ public class TreeVisualizer extends JFrame {
     private Node root;
 
     public TreeVisualizer(Morse.Node morseRoot) {
-        setTitle("Visualizador de Árvore Morse");
+        setTitle("Árvore Morse");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Conversão para o tipo visual
         this.root = convertNode(morseRoot);
 
         int height = getHeight(root);
