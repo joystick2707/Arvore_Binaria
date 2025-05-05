@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         Morse tree = new Morse();
 
-        // Inserir o alfabeto diretamente na Main
         tree.insert('A', ".-");
         tree.insert('B', "-...");
         tree.insert('C', "-.-.");
@@ -32,7 +31,6 @@ public class Main {
         tree.insert('Y', "-.--");
         tree.insert('Z', "--..");
 
-        // Scanner para interações
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -56,8 +54,8 @@ public class Main {
                 case 2:
                     System.out.print("Digite código Morse: ");
                     String morse = scanner.nextLine();
-                    String decoded = tree.decode(morse);  // Chama o método decode
-                    System.out.println("Decodificado: " + decoded);  // Exibe a mensagem decodificada
+                    String decoded = tree.decode(morse);  
+                    System.out.println("Decodificado: " + decoded);  
                     break;
 
                 case 3:
