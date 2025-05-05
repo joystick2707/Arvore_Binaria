@@ -1,5 +1,4 @@
 public class Morse {
-
     public static class Node {
         char letter;
         Node left, right;
@@ -12,7 +11,7 @@ public class Morse {
     private Node root;
 
     public Morse() {
-        root = new Node(' ');  // Raiz vazia
+        root = new Node(' ');  
     }
 
     public void insert(char letter, String morseCode) {
@@ -31,7 +30,7 @@ public class Morse {
         current.letter = letter;
     }
 
-    // Método recursivo para codificar uma palavra para Morse
+    // Método recursivo para codificar a palavra
     public String encode(String text) {
         StringBuilder result = new StringBuilder();
         for (char ch : text.toUpperCase().toCharArray()) {
@@ -52,7 +51,7 @@ public class Morse {
     // Método recursivo para encontrar o código Morse
     private String findMorseCode(Node node, char letter, String path) {
         if (node == null) {
-            return ""; // Se o nó for null, significa que não encontrou a letra
+            return ""; // Se o node for null, significa que não encontrou a letra
         }
 
         if (node.letter == letter) {
