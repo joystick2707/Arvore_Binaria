@@ -2,22 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TreeVisualizer extends JFrame {
-    static class Node {
-        char letter;
-        Node left, right;
-
-        Node(char letter) {
-            this.letter = letter;
-        }
-    }
-
     private Node root;
 
-    public TreeVisualizer(Morse.Node morseRoot) {
+    public TreeVisualizer(Node morseRoot) {
         setTitle("Árvore Morse");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.root = convertNode(morseRoot);
+        this.root = morseRoot;
 
         int height = getHeight(root);
         int canvasHeight = 100 + height * 100;
@@ -36,14 +27,6 @@ public class TreeVisualizer extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-    }
-
-    private Node convertNode(Morse.Node morseNode) {
-        if (morseNode == null) return null;
-        Node newNode = new Node(morseNode.letter);
-        newNode.left = convertNode(morseNode.left);
-        newNode.right = convertNode(morseNode.right);
-        return newNode;
     }
 
     private int getHeight(Node node) {
