@@ -35,7 +35,6 @@ public class Main {
         int option;
 
         do {
-            System.out.println("\n--- MENU ---");
             System.out.println("[1] Codificar");
             System.out.println("[2] Decodificar");
             System.out.println("[3] Visualizar Árvore");
@@ -64,7 +63,7 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Encerrando o programa...");
+                    System.out.println("Saindo do programa");
                     break;
 
                 default:
