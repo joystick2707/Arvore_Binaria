@@ -32,29 +32,47 @@ public class Main {
         tree.insert('Z', "--..");
 
         Scanner scanner = new Scanner(System.in);
+        int option;
 
-        System.out.println("[1] Codificar");
-        System.out.println("[2] Decodificar");
-        System.out.print("Escolha uma opção: ");
-        int option = scanner.nextInt();
-        scanner.nextLine();
+        do {
+            System.out.println("\n--- MENU ---");
+            System.out.println("[1] Codificar");
+            System.out.println("[2] Decodificar");
+            System.out.println("[3] Visualizar Árvore");
+            System.out.println("[4] Sair");
+            System.out.print("Escolha uma opção: ");
+            option = scanner.nextInt();
+            scanner.nextLine();
 
-        if (option == 1) {
-            System.out.print("Digite uma palavra para codificar: ");
-            String text = scanner.nextLine().toUpperCase();
-            String encoded = tree.encode(text);
-            System.out.println("Codificado: " + encoded);
+            switch (option) {
+                case 1:
+                    System.out.print("Digite uma palavra para codificar: ");
+                    String text = scanner.nextLine().toUpperCase();
+                    String encoded = tree.encode(text);
+                    System.out.println("Codificado: " + encoded);
+                    break;
 
-        } else if (option == 2) {
-            System.out.print("Digite código Morse: ");
-            String morse = scanner.nextLine();
-            String decoded = tree.decode(morse);
-            System.out.println("Decodificado: " + decoded);
+                case 2:
+                    System.out.print("Digite código Morse: ");
+                    String morse = scanner.nextLine();
+                    String decoded = tree.decode(morse);
+                    System.out.println("Decodificado: " + decoded);
+                    break;
 
-        } else {
-            System.out.println("Opção inválida.");
-        }
+                case 3:
+                    new TreeVisualizer(tree.getRoot());
+                    break;
 
-        new TreeVisualizer();
+                case 4:
+                    System.out.println("Encerrando o programa...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+
+        } while (option != 4);
+
+        scanner.close();
     }
 }
