@@ -1,4 +1,3 @@
-// Classe Morse responsável por armazenar e manipular a árvore do código Morse
 public class Morse {
 
     private Node root;
