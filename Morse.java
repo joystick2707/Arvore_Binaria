@@ -6,7 +6,6 @@ public class Morse {
         root = new Node(' ');
     }
 
-    // Insere uma letra na árvore com base em seu código Morse
     public void insert(char letter, String morseCode) {
         Node current = root;
         for (char c : morseCode.toCharArray()) {
@@ -23,60 +22,54 @@ public class Morse {
         current.letter = letter;
     }
 
-    // Método recursivo para codificar a palavra
     public String encode(String text) {
-        StringBuilder result = new StringBuilder();
+        String result = "";
         for (char ch : text.toUpperCase().toCharArray()) {
             if (ch == ' ') {
-                result.append(" / "); // separador entre palavras
+                result += " / "; // separador entre palavras
             } else {
                 String morseCode = findMorseCode(root, ch, "");
                 if (morseCode.isEmpty()) {
-                    result.append("? ");
+                    result += "? ";
                 } else {
-                    result.append(morseCode).append(" ");
+                    result += morseCode + " ";
                 }
             }
         }
-        return result.toString().trim();
+        return result.trim();
     }
 
-    // Método recursivo para encontrar o código Morse
     private String findMorseCode(Node node, char letter, String path) {
         if (node == null) {
-            return ""; // Se o node for null, significa que não encontrou a letra
+            return "";
         }
 
         if (node.letter == letter) {
-            return path; // Encontrou a letra, retorna o caminho Morse
+            return path;
         }
 
-        // Tenta procurar à esquerda e à direita
         String leftPath = findMorseCode(node.left, letter, path + ".");
         if (!leftPath.isEmpty()) {
-            return leftPath; // Se encontrou à esquerda, retorna o caminho
+            return leftPath;
         }
 
-        // Caso não tenha encontrado à esquerda, tenta à direita
         return findMorseCode(node.right, letter, path + "-");
     }
 
-    // Método para decodificar uma sequência em código Morse
     public String decode(String morseWord) {
-        StringBuilder result = new StringBuilder();
+        String result = "";
         for (String morseChar : morseWord.split(" ")) {
-            result.append(decodeChar(root, morseChar));
+            result += decodeChar(root, morseChar);
         }
-        return result.toString();
+        return result;
     }
 
-    // Método recursivo para decodificar um único caractere Morse
     private char decodeChar(Node node, String morseChar) {
         for (char c : morseChar.toCharArray()) {
             if (c == '.') {
-                node = node.left; // Avança para a esquerda
+                node = node.left;
             } else if (c == '-') {
-                node = node.right; // Avança para a direita
+                node = node.right;
             }
             if (node == null) {
                 return '?';
