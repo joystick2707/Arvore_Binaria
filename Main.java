@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Morse tree = new Morse();
-        
+
+        // Insere todas as letras do alfabeto com seus respectivos códigos Morse na árvore
         tree.insert('A', ".-");
         tree.insert('B', "-...");
         tree.insert('C', "-.-.");
