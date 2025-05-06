@@ -81,6 +81,7 @@ public class Morse {
         return node.letter;
     }
 
+    // Retorna a raiz da árvore (pode ser útil para testes ou visualização)
     public Node getRoot() {
         return root;
     }
