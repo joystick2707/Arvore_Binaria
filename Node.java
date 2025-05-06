@@ -3,6 +3,7 @@ public class Node {
     public char letter;
     public Node left, right;
 
+     // Construtor: inicializa o nó com a letra fornecida
     public Node(char letter) {
         this.letter = letter;
     }
