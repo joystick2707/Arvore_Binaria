@@ -1,3 +1,4 @@
+// Classe que representa uma árvore binária para codificação e decodificação em código Morse
 public class Morse {
 
     private Node root;
@@ -5,7 +6,8 @@ public class Morse {
     public Morse() {
         root = new Node(' ');
     }
-
+    
+    // Insere uma letra na árvore com base em seu código Morse
     public void insert(char letter, String morseCode) {
         Node current = root;
         for (char c : morseCode.toCharArray()) {
@@ -22,6 +24,7 @@ public class Morse {
         current.letter = letter;
     }
 
+    // Codifica uma string de texto para código Morse
     public String encode(String text) {
         String result = "";
         for (char ch : text.toUpperCase().toCharArray()) {
