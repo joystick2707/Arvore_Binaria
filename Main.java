@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         Morse tree = new Morse();
         
-// Insere letras do alfabeto com seus respectivos códigos Morse na árvore
         tree.insert('A', ".-");
         tree.insert('B', "-...");
         tree.insert('C', "-.-.");
@@ -32,7 +31,6 @@ public class Main {
         tree.insert('Y', "-.--");
         tree.insert('Z', "--..");
         
-// Inicializa o Scanner para capturar entrada do usuário
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -45,7 +43,6 @@ public class Main {
             option = scanner.nextInt();
             scanner.nextLine();
             
-// Processa a opção escolhida
             switch (option) {
                 case 1:
                     System.out.print("Digite uma palavra para codificar: ");
