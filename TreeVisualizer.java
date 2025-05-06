@@ -1,9 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 
+// Classe TreeVisualizer que herda de JFrame para exibir uma janela gráfica
 public class TreeVisualizer extends JFrame {
     private Node root;
 
+    // Construtor: recebe a raiz da árvore e configura a janela
     public TreeVisualizer(Node morseRoot) {
         setTitle("Árvore Morse");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,12 +47,15 @@ public class TreeVisualizer extends JFrame {
         g.drawOval(x - 15, y - 15, 30, 30);
         g.drawString(String.valueOf(node.letter), x - 5, y + 5);
 
+          // Desenha linha e recursivamente o nó da esquerda ('.')
         if (node.left != null) {
             int newX = x - xOffset;
             int newY = y + 100;
             g.drawLine(x, y + 15, newX, newY - 15);
             drawNode(g, node.left, newX, newY, xOffset / 2, level + 1);
         }
+
+        // Desenha linha e recursivamente o nó da direita ('-')
         if (node.right != null) {
             int newX = x + xOffset;
             int newY = y + 100;
